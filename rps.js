@@ -1,9 +1,12 @@
+let computerSelection = getUserChoice();
+let playerSelection = getComputerChoice();
+
 function getComputerChoice() {  // Generate computer choice and return the choice
     let result = Math.floor(Math.random() * 3);
 
     if (result == 0) {
         console.log("rock");
-
+        
         return "rock";
     }
 
