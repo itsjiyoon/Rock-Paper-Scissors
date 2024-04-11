@@ -77,3 +77,9 @@ function  playRound(playerSelection, computerSelection) { // Play one round base
         }
     }       
 }
+
+function playGame() {
+    for (i = 0; i < 4; i++) {
+        playRound(playerSelection, computerSelection);
+    }
+}
