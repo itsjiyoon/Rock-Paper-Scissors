@@ -1,6 +1,3 @@
-let computerSelection = getUserChoice();
-let playerSelection = getComputerChoice();
-
 function getComputerChoice() {  // Generate computer choice and return the choice
     let result = Math.floor(Math.random() * 3);
 
@@ -30,15 +27,15 @@ function getUserChoice() { // Ask user to put their choice and return the choice
 }
 
 
-function  playRound(playerSelection, computerSelection) { // Play one round based on computer's choice and user's choice
-    if (playerSelection == "rock") {
+function  playRound(userSelection, computerSelection) { // Play one round based on computer's choice and user's choice
+    if (userSelection == "rock") {
         switch (computerSelection) {
             case "paper" :
-                console.log("you lose! " + computerSelection + " beats " + playerSelection);
+                console.log("you lose! " + computerSelection + " beats " + userSelection);
                 break;
                 
             case "scissors" :
-                console.log("you win! " + playerSelection + " beats " + computerSelection);
+                console.log("you win! " + userSelection + " beats " + computerSelection);
                 break;
                 
             default :
@@ -46,14 +43,14 @@ function  playRound(playerSelection, computerSelection) { // Play one round base
         }
     }
 
-    else if (playerSelection == "paper") {
+    else if (userSelection == "paper") {
         switch (computerSelection) {
             case "scissors" :
-                console.log("you lose! " + computerSelection + " beats " + playerSelection);
+                console.log("you lose! " + computerSelection + " beats " + userSelection);
                 break;
                 
             case "rock" :
-                console.log("you win! " + playerSelection + " beats " + computerSelection);
+                console.log("you win! " + userSelection + " beats " + computerSelection);
                 break;
                 
             default :
@@ -64,11 +61,11 @@ function  playRound(playerSelection, computerSelection) { // Play one round base
     else {
         switch (computerSelection) {
             case "rock" :
-                console.log("you lose! " + computerSelection + " beats " + playerSelection);
+                console.log("you lose! " + computerSelection + " beats " + userSelection);
                 break;
                 
             case "paper" :
-                console.log("you win! " + playerSelection + " beats " + computerSelection);
+                console.log("you win! " + userSelection + " beats " + computerSelection);
                 break;
                 
             default :
@@ -77,12 +74,16 @@ function  playRound(playerSelection, computerSelection) { // Play one round base
     }       
 }
 
-function playGame() {
-    playRound(playerSelection, computerSelection);
 
+function playGame() { // Play the game 5 times
+    let selection1 = getUserChoice();
+    let selection2 = getComputerChoice();
+
+    playRound(selection1,selection2);
+    
     for (i = 0; i < 4; i++) {
-        getUserChoice();
-        getComputerChoice();
-        playRound(playerSelection, computerSelection);
+        selection1 = getUserChoice();
+        selection2 = getComputerChoice();
+        playRound(selection1,selection2);
     }
 }
