@@ -22,9 +22,9 @@ function getComputerChoice() {  // Generate computer choice and return the choic
 
 
 function getUserChoice() { // Ask user to put their choice and return the choice
-    let userInput = toLowerCase(prompt("rock? paper? scissors? :D"));
+    let userInput = prompt("rock? paper? scissors? :D");
 
-    return userInput;
+    return userInput.toLowerCase();
 }
 
 
