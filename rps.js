@@ -78,9 +78,11 @@ function  playRound(playerSelection, computerSelection) { // Play one round base
 }
 
 function playGame() {
+    playRound(playerSelection, computerSelection);
+
     for (i = 0; i < 4; i++) {
-        playRound(playerSelection, computerSelection);
         getUserChoice();
         getComputerChoice();
+        playRound(playerSelection, computerSelection);
     }
 }
