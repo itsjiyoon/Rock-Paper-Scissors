@@ -29,7 +29,7 @@ function getUserChoice() { // Ask user to put their choice and return the choice
 
 
 function  playRound(playerSelection, computerSelection) { // Play one round based on computer's choice and user's choice
-    if (playerSelection === "rock") {
+    if (playerSelection == "rock") {
         switch (computerSelection) {
             case "paper" :
                 console.log("you lose! " + computerSelection + " beats " + playerSelection);
@@ -41,11 +41,10 @@ function  playRound(playerSelection, computerSelection) { // Play one round base
                 
             default :
                 console.log("tied!");
-                break;
         }
     }
 
-    else if (playerSelection === "paper") {
+    else if (playerSelection == "paper") {
         switch (computerSelection) {
             case "scissors" :
                 console.log("you lose! " + computerSelection + " beats " + playerSelection);
@@ -56,8 +55,7 @@ function  playRound(playerSelection, computerSelection) { // Play one round base
                 break;
                 
             default :
-                console.log("tied! ");
-                break;
+                console.log("tied!");
         }
     }
 
@@ -73,7 +71,6 @@ function  playRound(playerSelection, computerSelection) { // Play one round base
                 
             default :
                 console.log("tied!");
-                break;
         }
     }       
 }
