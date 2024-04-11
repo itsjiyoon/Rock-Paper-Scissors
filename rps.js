@@ -5,21 +5,18 @@ function getComputerChoice() {  // Generate computer choice and return the choic
     let result = Math.floor(Math.random() * 3);
 
     if (result == 0) {
-        console.log("rock");
         alert("Computer's choice is rock");
 
         return "rock";
     }
 
     else if (result == 1) {
-        console.log("paper");
         alert("Computer's choice is paper");
 
         return "paper";
     }
 
     else { 
-        console.log("scissors");
         alert("Computer's choice is scissors");
         return "scissors";
     }
