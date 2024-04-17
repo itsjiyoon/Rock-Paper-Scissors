@@ -20,14 +20,7 @@ function getComputerChoice() {  // Generate computer choice and return the choic
 } 
 
 
-// function getUserChoice() { // Ask user to put their choice and return the choice
-//     let userInput = prompt("rock? paper? scissors? :D");
-
-//     return userInput.toLowerCase();
-// }
-
-
-function  playRound(userSelection, computerSelection) { // Play one round based on computer's choice and user's choice
+function  playRound(userSelection, computerSelection) { // Play one round based on computer's choice and user's choice and calls gameResult function
     if (userSelection == "rock") {
         switch (computerSelection) {
             case "paper" :
@@ -86,7 +79,7 @@ function  playRound(userSelection, computerSelection) { // Play one round based 
 let userCount = 0;
 let computerCount = 0;
 
-function gameResult (result) {
+function gameResult (result) { //Prints out game results(scores)
     if (userCount === 0 && computerCount === 0) {
         para5.textContent = " ";
     }
