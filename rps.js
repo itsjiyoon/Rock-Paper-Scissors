@@ -75,15 +75,30 @@ function  playRound(userSelection, computerSelection) { // Play one round based 
 }
 
 
-function playGame() { // Play the game 5 times
-    let selection1 = getUserChoice();
-    let selection2 = getComputerChoice();
+// function playGame() { // Play the game 5 times
+//     let selection1 = getUserChoice();
+//     let selection2 = getComputerChoice();
 
-    playRound(selection1,selection2);
+//     playRound(selection1,selection2);
     
-    for (i = 0; i < 4; i++) {
-        selection1 = getUserChoice();
-        selection2 = getComputerChoice();
-        playRound(selection1,selection2);
-    }
-}
+//     for (i = 0; i < 4; i++) {
+//         selection1 = getUserChoice();
+//         selection2 = getComputerChoice();
+//         playRound(selection1,selection2);
+//     }
+// }
+
+const container = document.querySelector("body");
+const btn1 = document.createElement("button");
+const btn2 = document.createElement("button");
+const btn3 = document.createElement("button");
+
+container.append(btn1);
+container.append(btn2);
+container.append(btn3);
+
+
+btn1.addEventListener("click", playRound(getUserChoice(), getComputerChoice()));
+btn2.addEventListener("click", playRound(getUserChoice(), getComputerChoice()));
+btn3.addEventListener("click", playRound(getUserChoice(), getComputerChoice()));
+
