@@ -81,7 +81,7 @@ function playGame() { // Play the game 5 times
 
     playRound(selection1,selection2);
     
-    for (i = 0; i < 4; i++) {
+    for (let i = 0; i < 4; i++) {
         selection1 = getUserChoice();
         selection2 = getComputerChoice();
         playRound(selection1,selection2);
