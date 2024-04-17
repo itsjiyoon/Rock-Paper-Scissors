@@ -98,7 +98,6 @@ container.append(btn2);
 container.append(btn3);
 
 
-btn1.addEventListener("click", playRound(getUserChoice(), getComputerChoice()));
-btn2.addEventListener("click", playRound(getUserChoice(), getComputerChoice()));
-btn3.addEventListener("click", playRound(getUserChoice(), getComputerChoice()));
-
+btn1.addEventListener("click", event => playRound(getUserChoice(), getComputerChoice()));
+btn2.addEventListener("click", event => playRound(getUserChoice(), getComputerChoice()));
+btn3.addEventListener("click", event => playRound(getUserChoice(), getComputerChoice()));
