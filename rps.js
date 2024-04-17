@@ -1,103 +1,174 @@
 function getComputerChoice() {  // Generate computer choice and return the choice
-    let result = Math.floor(Math.random() * 3);
+    let gameResult = Math.floor(Math.random() * 3);
 
-    if (result == 0) {
-        alert("Computer's choice is rock");
+    if (gameResult == 0) {
+        para3.textContent = "Computer's choice is rock";
 
         return "rock";
     }
 
-    else if (result == 1) {
-        alert("Computer's choice is paper");
+    else if (gameResult == 1) {
+        para3.textContent = "Computer's choice is paper";
 
         return "paper";
     }
 
     else { 
-        alert("Computer's choice is scissors");
+        para3.textContent = "Computer's choice is scissors";
         return "scissors";
     }
 } 
 
 
-function getUserChoice() { // Ask user to put their choice and return the choice
-    let userInput = prompt("rock? paper? scissors? :D");
+// function getUserChoice() { // Ask user to put their choice and return the choice
+//     let userInput = prompt("rock? paper? scissors? :D");
 
-    return userInput.toLowerCase();
-}
+//     return userInput.toLowerCase();
+// }
 
 
 function  playRound(userSelection, computerSelection) { // Play one round based on computer's choice and user's choice
     if (userSelection == "rock") {
         switch (computerSelection) {
             case "paper" :
-                console.log("you lose! " + computerSelection + " beats " + userSelection);
+                para4.textContent = `You lose! ${computerSelection} beats ${userSelection}`;
+                gameResult("lose");
                 break;
                 
             case "scissors" :
-                console.log("you win! " + userSelection + " beats " + computerSelection);
+                para4.textContent = `You win! ${userSelection} beats ${computerSelection}`;
+                gameResult("win");
                 break;
                 
             default :
-                console.log("tied!");
+                para4.textContent = "Tied!";
+                gameResult("tie");
         }
     }
 
     else if (userSelection == "paper") {
         switch (computerSelection) {
             case "scissors" :
-                console.log("you lose! " + computerSelection + " beats " + userSelection);
+                para4.textContent = `You lose! ${computerSelection} beats ${userSelection}`;
+                gameResult("lose");
                 break;
                 
             case "rock" :
-                console.log("you win! " + userSelection + " beats " + computerSelection);
+                para4.textContent = `You win! ${userSelection} beats ${computerSelection}`;
+                gameResult("win");
                 break;
                 
             default :
-                console.log("tied!");
+                para4.textContent = "Tied!";
+                gameResult("tie");
         }
     }
 
     else {
         switch (computerSelection) {
             case "rock" :
-                console.log("you lose! " + computerSelection + " beats " + userSelection);
+                para4.textContent = `You lose! ${computerSelection} beats ${userSelection}`;
+                gameResult("lose");
                 break;
                 
             case "paper" :
-                console.log("you win! " + userSelection + " beats " + computerSelection);
+                para4.textContent = `You win! ${userSelection} beats ${computerSelection}`;
+                gameResult("win");
                 break;
                 
             default :
-                console.log("tied!");
+                para4.textContent = "Tied!";
+                gameResult("tie");
         }
     }       
 }
 
+let userCount = 0;
+let computerCount = 0;
 
-// function playGame() { // Play the game 5 times
-//     let selection1 = getUserChoice();
-//     let selection2 = getComputerChoice();
+function gameResult (result) {
+    if (userCount === 0 && computerCount === 0) {
+        para5.textContent = " ";
+    }
 
-//     playRound(selection1,selection2);
-    
-//     for (i = 0; i < 4; i++) {
-//         selection1 = getUserChoice();
-//         selection2 = getComputerChoice();
-//         playRound(selection1,selection2);
-//     }
-// }
+    if (result === "win") {
+        userCount++;
+        score.textContent = `You ${userCount}  :  ${computerCount} Computer`;
+    }
 
+    else if (result === "lose") {
+        computerCount++;
+        score.textContent = `You ${userCount}  :  ${computerCount} Computer`;
+    }
+
+    else { 
+        score.textContent = `You ${userCount}  :  ${computerCount} Computer`;
+    }
+
+    if (userCount === 5 || computerCount === 5) {
+        if (userCount === 5) {
+            para5.textContent = "You're the winner! Hope you had fun :)";
+        }
+
+        else { 
+            para5.textContent = "Computer is the winner! Play again to win next time!";
+        }
+
+        userCount = 0;
+        computerCount = 0;
+    }
+}
+
+
+//Create elements
 const container = document.querySelector("body");
+const divForTitle = document.createElement("div");
+const para1 = document.createElement("p");
+const para2 = document.createElement("p");
+const divForBtns = document.createElement("div");
 const btn1 = document.createElement("button");
 const btn2 = document.createElement("button");
 const btn3 = document.createElement("button");
+const para3 = document.createElement("p");
+const para4 = document.createElement("p");
+const score = document.createElement("p");
+const para5 = document.createElement("p");
 
-container.append(btn1);
-container.append(btn2);
-container.append(btn3);
 
 
-btn1.addEventListener("click", event => playRound(getUserChoice(), getComputerChoice()));
-btn2.addEventListener("click", event => playRound(getUserChoice(), getComputerChoice()));
-btn3.addEventListener("click", event => playRound(getUserChoice(), getComputerChoice()));
+//Add classes
+para1.classList.add("title");
+para2.classList.add("undertitle");
+divForBtns.classList.add("buttons");
+para3.classList.add("computerchoice");
+para4.classList.add("result");
+score.classList.add("score");
+para5.classList.add("endgamewords");
+
+
+//Add text
+para1.textContent = "Rock Paper Scissors!";
+para2.textContent = "Choose your move :)";
+btn1.textContent = "ROCK";
+btn2.textContent = "PAPER";
+btn3.textContent = "SCISSORS";
+
+
+//Actually push the elements to html
+container.append(divForTitle);
+container.append(divForBtns);
+divForTitle.append(para1);
+divForTitle.append(para2);
+divForBtns.append(btn1);
+divForBtns.append(btn2);
+divForBtns.append(btn3);
+container.append(para3);
+container.append(para4);
+container.append(score);
+container.append(para5);
+
+
+//Button events
+btn1.addEventListener("click", event => playRound("rock", getComputerChoice()));
+btn2.addEventListener("click", event => playRound("paper", getComputerChoice()));
+btn3.addEventListener("click", event => playRound("scissors", getComputerChoice()));
